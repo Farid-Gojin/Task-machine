@@ -51,12 +51,10 @@ function App() {
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    if (newTodos[todoIndex].completed) {
-      newTodos[todoIndex].completed = false;
-      saveTodos(newTodos);
-    }
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed; 
+    saveTodos(newTodos);
   };
-
+  
   const DeleteTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
