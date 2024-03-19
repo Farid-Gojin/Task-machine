@@ -1,0 +1,11 @@
+.TodoCount {
+    font-size: 2em;
+    text-align: center;
+    margin: 0;
+    padding: 48px;
+    font-weight: bold;
+}
+
+.Todocount span {
+    font-weight: bold;
+}
