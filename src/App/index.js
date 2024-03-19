@@ -1,25 +1,9 @@
-import { TodoCount } from '../TodoCount';
-import { TodoFilter } from '../TodoFilter'; 
-import { TodoList } from '../TodoList';
-import { TodoItem } from '../TodoItem';
-import { CreateTodoButton } from '../CreateTodoButton';
 import React from 'react';
+import { AppUI } from './AppUI';
 import './App.css';
 import {useLocalStorage} from './useLocalStorage'
 
-// const defaultTodos = [
-//   { text: 'cortar cebolla', completed: true },
-//   { text: 'aprender curso', completed: false },
-//   { text: 'llegar a ascendente', completed: false },
-//   { text: 'no se que poner ', completed: false },
-//   { text: 'aea', completed: true},
-// ];
-
-// localStorage.setItem('TODOSV1',JSON.stringify(defaultTodos));
-// localStorage.removeItem('TODOSV1')
-
-
-function App() {
+function App() { 
   const [todos, saveTodos] = useLocalStorage('TODOSV1', []);
   const [searchValue, setSearchValue] = React.useState('');
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -50,24 +34,28 @@ function App() {
   });
 
   return (
-    <React.Fragment>
-      <TodoCount completed={completedTodos} total={totalTodos} />
-      <TodoFilter searchValue={searchValue} setSearchValue={setSearchValue} />
-      <TodoList>
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => DeleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
-      <CreateTodoButton />
-    </React.Fragment>
-  );
+    <AppUI
+     completedTodos={completedTodos}
+     totalTodos={ totalTodos}
+     searchValue={searchValue}
+     setSearchValue={setSearchValue}
+     searchedTodos={searchedTodos}
+     completeTodo={completeTodo}
+     DeleteTodo={DeleteTodo}
+   />
+  )
 }
 
 export default App;
+
+// const defaultTodos = [
+//   { text: 'cortar cebolla', completed: true },
+//   { text: 'aprender curso', completed: false },
+//   { text: 'llegar a ascendente', completed: false },
+//   { text: 'no se que poner ', completed: false },
+//   { text: 'aea', completed: true},
+// ];
+
+// localStorage.setItem('TODOSV1',JSON.stringify(defaultTodos));
+// localStorage.removeItem('TODOSV1')
 
