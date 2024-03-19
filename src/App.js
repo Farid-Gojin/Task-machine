@@ -21,8 +21,14 @@ function App() {
 
   const localStorageTodos = localStorage.getItem('TODOSV1');
 
-  let parsedTodos = JSON.parse(localStorageTodos);
+   let parsedTodos;
 
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOSV1', JSON.stringify([]));
+    parsedTodos = []
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
 
   const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState('');
