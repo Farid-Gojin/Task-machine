@@ -1,5 +1,5 @@
 import React from "react";
-import './estilos.css';
+import './TodoFilter.css';
 
 const placeholders = [
   "cocinar en casa",

@@ -1,7 +1,7 @@
 import React from "react";
 import { BsFillPatchCheckFill } from "react-icons/bs";
 import { IoCloseCircle } from "react-icons/io5";
-import './estilos.css'
+import './TodoItem.css'
 
 function TodoItem(props) {
     return(
