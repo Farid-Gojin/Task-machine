@@ -40,9 +40,9 @@ function useLocalStorage (itemName, initialValue) {
 }
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage ('TODOSV1', []);
+  const [todos, saveTodos] = useLocalStorage('TODOSV1', []);
   const [searchValue, setSearchValue] = React.useState('');
-  const completedTodos = todos.filter(todo => !!todo.completed).length;
+  const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
   const noTildes = (text) => {
     return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -51,34 +51,30 @@ function App() {
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos[todoIndex].completed = true;
-    saveTodos(newTodos);
+    if (newTodos[todoIndex].completed) {
+      newTodos[todoIndex].completed = false;
+      saveTodos(newTodos);
+    }
   };
+
   const DeleteTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos.splice(todoIndex, 1);
-    console.log("New todos:", newTodos); 
     saveTodos(newTodos);
-};
+  };
 
+  const searchedTodos = todos.filter((todo) => {
+    const todoTextLC = noTildes(todo.text.toLowerCase());
+    const searchTextLC = noTildes(searchValue.toLowerCase());
 
-  const searchedTodos = todos.filter(
-    (todo) => {
-      const todoTextLC = noTildes(todo.text.toLowerCase());
-      const searchTextLC = noTildes(searchValue.toLowerCase());
-
-      return todoTextLC.includes(searchTextLC);
-    }
-  );
+    return todoTextLC.includes(searchTextLC);
+  });
 
   return (
     <React.Fragment>
       <TodoCount completed={completedTodos} total={totalTodos} />
-      <TodoFilter
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
+      <TodoFilter searchValue={searchValue} setSearchValue={setSearchValue} />
       <TodoList>
         {searchedTodos.map((todo) => (
           <TodoItem
@@ -96,3 +92,4 @@ function App() {
 }
 
 export default App;
+
