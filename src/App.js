@@ -39,7 +39,7 @@ function App() {
   };
 
   const saveTodos = (newTodos) => {
-    localStorageTodos.setItem('TODOSV1',JSON.stringify(newTodos));
+    localStorage.setItem('TODOSV1',JSON.stringify(newTodos));
 
     setTodos(newTodos);
   };
