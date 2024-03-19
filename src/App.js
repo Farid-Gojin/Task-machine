@@ -23,7 +23,7 @@ function useLocalStorage (itemName, initialValue) {
   let parsedItem;
 
  if (!localStorageItem) {
-   localStorage.setItem(itemname, JSON.stringify([]));
+   localStorage.setItem(itemName, JSON.stringify([]));
    parsedItem = []
  } else {
    parsedItem = JSON.parse(localStorageItem);
@@ -32,7 +32,7 @@ function useLocalStorage (itemName, initialValue) {
  const[item, setItem] = React.useState(parsedItem);
 
   const saveItem = (newItem) => {
-   localStorage.setItem(itemname,JSON.stringify(newItem));
+   localStorage.setItem(itemName,JSON.stringify(newItem));
    setItem(newItem);
   };
 
