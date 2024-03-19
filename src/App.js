@@ -19,7 +19,9 @@ import './App.css';
 
 function App() {
 
- let parsedTodos = localStorage.getItem('TODOSV1');
+  const localStorageTodos = localStorage.getItem('TODOSV1');
+
+  let parsedTodos = JSON.parse(localStorageTodos);
 
 
   const [todos, setTodos] = React.useState(parsedTodos);
