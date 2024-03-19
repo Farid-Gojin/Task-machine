@@ -8,6 +8,7 @@ function App() {
   const [searchValue, setSearchValue] = React.useState('');
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
+  
   const noTildes = (text) => {
     return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   };
@@ -59,3 +60,21 @@ export default App;
 // localStorage.setItem('TODOSV1',JSON.stringify(defaultTodos));
 // localStorage.removeItem('TODOSV1')
 
+  // console.log('log 1');
+
+  // // se ejecuta al final 
+  // // React.useEffect(() =>{
+  // //   console.log('looooogbait 2')
+  // // });
+ 
+  // // se ejecuta solo una vez 
+  // // React.useEffect(() =>{
+  // //   console.log('looooogbait 2')
+  // // }, []);
+
+  // //se ejecuta 1 vez y cuando se usa el estado totaltodos
+  // // React.useEffect(() =>{
+  // //   console.log('looooogbait 2')
+  // // }, [totalTodos]);
+
+  // console.log('log 3');
