@@ -14,7 +14,7 @@ import './App.css';
 //   { text: 'aea', completed: true},
 // ];
 
-// localStorage.setItem('TODOSV1',defaultTodos);
+// localStorage.setItem('TODOSV1',JSON.stringify(defaultTodos));
 // localStorage.removeItem('TODOSV1')
 
 function App() {
@@ -38,18 +38,24 @@ function App() {
     return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   };
 
+  const saveTodos = (newTodos) => {
+    localStorageTodos.setItem('TODOSV1',JSON.stringify(newTodos));
+
+    setTodos(newTodos);
+  };
+
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
   const DeleteTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos.splice(todoIndex, 1);
-    console.log("New todos:", newTodos); // Verificar que newTodos tiene la tarea eliminada
-    setTodos(newTodos);
+    console.log("New todos:", newTodos); 
+    saveTodos(newTodos);
 };
 
 
