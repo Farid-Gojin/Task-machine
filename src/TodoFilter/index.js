@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './TodoFilter.css';
 
 const placeholders = [
@@ -13,9 +13,8 @@ function TodoFilter({
   searchValue,
   setSearchValue
 }) {
-  
-  const randomIndex = Math.floor(Math.random() * placeholders.length);
-  const randomPlaceholder = placeholders[randomIndex];
+  const [placeholderIndex] = useState(Math.floor(Math.random() * placeholders.length));
+  const randomPlaceholder = placeholders[placeholderIndex];
 
   return (
     <input 
