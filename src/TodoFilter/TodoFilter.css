@@ -10,7 +10,7 @@
     font-family: 'Montserrat' ;
     font-weight: 400;
     color: #1E1E1F;
-    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+    
 }
 
 .Todofilter::placeholder {
@@ -20,5 +20,8 @@
 }
 
 .Todofilter:focus {
-outline-color: #b0b2b2;
+    box-shadow: 0px 5px 50px rgba(0, 255, 145, 0.25);
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: #0dce6e;
 }
