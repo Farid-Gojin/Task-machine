@@ -44,3 +44,35 @@ function useLocalStorage (itemName, initialValue) {
   }
 
   export { useLocalStorage };
+
+  // localStorage.removeItem('TODOSV1')
+
+// const defaultTodos = [
+//   { text: 'cortar cebolla', completed: true },
+//   { text: 'aprender curso', completed: false },
+//   { text: 'llegar a ascendente', completed: false },
+//   { text: 'no se que poner ', completed: false },
+//   { text: 'aea', completed: true},
+// ];
+
+// localStorage.setItem('TODOSV1',JSON.stringify(defaultTodos));
+
+
+  // console.log('log 1');
+
+  // // se ejecuta al final 
+  // // React.useEffect(() =>{
+  // //   console.log('looooogbait 2')
+  // // });
+ 
+  // // se ejecuta solo una vez 
+  // // React.useEffect(() =>{
+  // //   console.log('looooogbait 2')
+  // // }, []);
+
+  // //se ejecuta 1 vez y cuando se usa el estado totaltodos
+  // // React.useEffect(() =>{
+  // //   console.log('looooogbait 2')
+  // // }, [totalTodos]);
+
+  // console.log('log 3');
