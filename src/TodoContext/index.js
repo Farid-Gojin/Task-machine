@@ -15,6 +15,12 @@ function TodoProvider({children}) {
       return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     };
   
+    const addTodo = (text) => {
+      const newTodos = [...todos];
+      newTodos.push({text, completed: false,});
+      saveTodos(newTodos);
+    };
+
     const completeTodo = (text) => {
       const newTodos = [...todos];
       const todoIndex = newTodos.findIndex((todo) => todo.text === text);
@@ -36,7 +42,7 @@ function TodoProvider({children}) {
       return todoTextLC.includes(searchTextLC);
     });
     return (
-        <TodoContext.Provider value={{loading, error, completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, DeleteTodo, openModal, setOpenModal}}>
+        <TodoContext.Provider value={{loading, error, completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, DeleteTodo, openModal, setOpenModal, addTodo}}>
            
             {children}
 
