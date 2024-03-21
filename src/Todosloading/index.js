@@ -1,7 +1,7 @@
 import React from "react";
 import './Todosloading.css';
 
-function Todosloading{
+function Todosloading () {
   return (
     <p>loading .....</p>
   );
