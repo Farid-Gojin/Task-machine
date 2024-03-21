@@ -1,14 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import './TodoFilter.css';
 import { TodoContext } from "../TodoContext";
-
-const placeholders = [
-  "cocinar en casa",
-  "limpiar la casa",
-  "hacer ejercicio",
-  "leer un libro",
-  "aprender algo nuevo"
-];
 
 function TodoFilter() {
   const {
@@ -16,12 +8,9 @@ function TodoFilter() {
     setSearchValue,
   } = React.useContext(TodoContext);
 
-  const [placeholderIndex] = useState(Math.floor(Math.random() * placeholders.length));
-  const randomPlaceholder = placeholders[placeholderIndex];
-
   return (
     <input 
-      placeholder={randomPlaceholder}
+      placeholder="search"
       className="Todofilter"
       value={searchValue}
       onChange={(event) =>{

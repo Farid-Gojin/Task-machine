@@ -1,0 +1,77 @@
+form {
+ width: 90%;
+ max-width: 300px;
+ background-color: #0a0a0a;
+ padding: 33px 40px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ border-radius: 40px;
+}
+
+label {  
+ text-align: center;
+ font-weight: bold;
+ font-size: 20px;
+ color: #f2f2f2;
+ margin-bottom: 26px;
+ text-shadow: 0 2px 12px rgba(0, 255, 145, 7);
+}
+
+textarea {
+    background-color: #737475;
+    border: 2px solid #202329;
+    border-radius: 10px;
+    box-shadow: 0px 5px 50px rgb(197 197 197 / 25%);
+    color: #1E1E1F;
+    text-align: center;
+    font-size: 20px;
+    padding: 12px;
+    height: 96px;
+    width: calc(100% - 25px);
+}
+
+textarea::placeholder{
+    color: #A5A5A5;
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+textarea:focus {
+    outline-style: solid;
+    outline-color: #0dce6e;    
+}
+
+.TodoForm-buttonContainer {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.TodoForm-button {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    color: #f2f2f2;
+    font-weight: 400;
+    width: 120px;
+    height: 48px;
+    border-radius: 2px;
+    border: none;
+    font-family: 'Montserrat';
+}
+
+.TodoForm-button--add {
+    background: #2FC284;
+    border-radius: 8px;
+    box-shadow: 0px 5px 25px rgb(2 255 171 / 35%);
+}
+
+.TodoForm-button--delete {
+    background: #b2220f;
+    border-radius: 8px;
+    box-shadow: 0px 5px 25px rgb(255 0 0 / 40%);
+
+}

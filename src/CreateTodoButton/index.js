@@ -1,19 +1,19 @@
-import React from "react"
-import './CreateTodobutton.css'
+import React from "react";
+import './CreateTodobutton.css';
 
-function CreateTodoButton() {
+function CreateTodoButton({ setOpenModal }) {
+  const handleClick = () => {
+    setOpenModal((state) => !state);
+  };
+
   return (
-    <button 
-    className="Createtodobutton"
-     onClick={
-      (event) => { 
-        console.log('click'); 
-        console.log(event);
-        console.log(event.target);
-         }
-        }
-      >+</button>
+    <button
+      className="Createtodobutton"
+      onClick={handleClick}
+    >
+      +
+    </button>
   );
 }
 
-export {CreateTodoButton};
+export { CreateTodoButton };

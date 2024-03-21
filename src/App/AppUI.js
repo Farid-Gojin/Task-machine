@@ -9,46 +9,47 @@ import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { TodoContext } from "../TodoContext";
 import { Modal } from "../Modal";
+import { TodoForm } from '../TodoForm';
 
-
-function AppUI () {
-  const{
+function AppUI() {
+  const {
     loading, 
     error, 
     searchedTodos, 
     completeTodo, 
-    DeleteTodo,
+    deleteTodo,
     openModal,
+    setOpenModal,
   } = React.useContext(TodoContext);
 
-    return (
-        <>
-          <TodoCount/>
-          <TodoFilter/>
-          <TodoList>
-                {loading && <Todosloading/>}
-                {error && <TodosError/>}
-                {(!loading && searchedTodos.length === 0) && <EmptyTodos/>}
-    
-                {searchedTodos.map((todo) => (
-                  <TodoItem
-                    key={todo.text}
-                    text={todo.text}
-                    completed={todo.completed}
-                    onComplete={() => completeTodo(todo.text)}
-                    onDelete={() => DeleteTodo(todo.text)}
-                  />
-                ))}
-          </TodoList>
-          <CreateTodoButton/>
-          
-          {openModal && (
-            <Modal>
-            agregar todos
-            </Modal>
-          )}
-        </>
-      );
+  return (
+    <>
+      <TodoCount/>
+      <TodoFilter/>
+      <TodoList>
+        {loading && !openModal && <Todosloading/>}
+        {error && <TodosError/>}
+        {(!loading && searchedTodos.length === 0) && <EmptyTodos/>}
+
+        {searchedTodos.map((todo) => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        ))}
+      </TodoList>
+      <CreateTodoButton setOpenModal={setOpenModal}/>
+      
+      {openModal && (
+        <Modal>
+          <TodoForm/>
+        </Modal>
+      )}
+    </>
+  );
 }
 
-export {AppUI} ;
+export { AppUI };
