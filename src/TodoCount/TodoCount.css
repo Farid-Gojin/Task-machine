@@ -1,4 +1,5 @@
 .TodoCount {
+    color: #f2f2f2;
     font-size: 2em;
     text-align: center;
     margin: 0;
@@ -7,5 +8,6 @@
 }
 
 .Todocount span {
+    color: #2fc284;
     font-weight: bold;
 }
