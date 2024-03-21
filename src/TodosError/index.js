@@ -3,7 +3,7 @@ import './TodosError.css';
 
 function TodosError (){
   return (
-    <p>Surgio un error... cual? pues no se</p>
+    <p className="TodosError">Surgio un error... cual? pues no se</p>
   );
 }
 

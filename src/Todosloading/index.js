@@ -1,10 +1,8 @@
 import React from "react";
-import './Todosloading.css';
+import "./Todosloading.css";
 
-function Todosloading () {
-  return (
-    <p>loading .....</p>
-  );
+function Todosloading() {
+  return <p className="Todosloading">loading .....</p>;
 }
 
-export {Todosloading};
+export { Todosloading };
