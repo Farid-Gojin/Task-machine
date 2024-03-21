@@ -11,19 +11,19 @@ import { TodoContext } from "../TodoContext";
 
 
 function AppUI () {
+  const{
+    loading, 
+    error, 
+    searchedTodos, 
+    completeTodo, 
+    DeleteTodo
+  } = React.useContext(TodoContext);
+
     return (
         <>
           <TodoCount/>
           <TodoFilter/>
-          <TodoContext.Consumer>
-            {({
-              loading, 
-              error, 
-              searchedTodos, 
-              completeTodo, 
-              DeleteTodo
-            }) => (
-              <TodoList>
+          <TodoList>
                 {loading && <Todosloading/>}
                 {error && <TodosError/>}
                 {(!loading && searchedTodos.length === 0) && <EmptyTodos/>}
@@ -37,9 +37,7 @@ function AppUI () {
                     onDelete={() => DeleteTodo(todo.text)}
                   />
                 ))}
-              </TodoList>
-            )}
-          </TodoContext.Consumer>
+          </TodoList>
           <CreateTodoButton />
         </>
       );

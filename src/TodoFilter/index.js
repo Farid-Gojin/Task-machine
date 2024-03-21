@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './TodoFilter.css';
+import { TodoContext } from "../TodoContext";
 
 const placeholders = [
   "cocinar en casa",
@@ -9,10 +10,12 @@ const placeholders = [
   "aprender algo nuevo"
 ];
 
-function TodoFilter({
-  searchValue,
-  setSearchValue
-}) {
+function TodoFilter() {
+  const {
+    searchValue,
+    setSearchValue,
+  } = React.useContext(TodoContext);
+
   const [placeholderIndex] = useState(Math.floor(Math.random() * placeholders.length));
   const randomPlaceholder = placeholders[placeholderIndex];
 
