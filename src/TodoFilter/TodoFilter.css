@@ -1,6 +1,6 @@
 .Todofilter {
     background: #737475;
-    border-radius: 2PX;
+    border-radius: 15PX;
     border: 2px solid #202329;
     margin: 0 24px;
     height: 64px;
@@ -20,5 +20,5 @@
 }
 
 .Todofilter:focus {
-outline-color: #61DAFA;
+outline-color: #b0b2b2;
 }
